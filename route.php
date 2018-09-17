@@ -1,36 +1,30 @@
 <?php
-	
-    function base(){
-        
-        echo str_replace("index.php","",$_SERVER['PHP_SELF']);
-        
-    }
-	$url = explode("/",$_SERVER['QUERY_STRING']);
 
-	$url2 = explode("&",$_SERVER['QUERY_STRING']);
-
-    if(!empty($url2[1])){
+$get_url = $_SERVER['QUERY_STRING'];
 
 
-        str_replace("$url2[1]","",$_SERVER['QUERY_STRING']);
-        require_once($url2[0].".php");
+$url = explode("/", $get_url);
 
-        }else{
+$url2 = explode("&", $get_url);
 
-            if(file_exists($url[0].".php")){
 
-                require_once($url[0].".php");
+if(!empty($url2[1])){
+    
+    str_replace($url2[1], "", $get_url);
+    
+    require_once($url2[0].".php");
+    
+    }elseif(file_exists($url[0].".php")){
 
-            }elseif($url[0] == ""){
+        require_once($url[0].".php");
 
-                require_once("home.php");
+    }elseif($url[0] == ""){
 
-            }else{
+        require_once("home.php");
 
-            require_once("404.php");
-        }
+    }else{
 
-    }
-
+        require_once("404.php");
+}
 	
 ?>
