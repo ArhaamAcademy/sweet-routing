@@ -15,9 +15,11 @@ Just a few easy steps!
 
 -> Just Download it or Clone it to your local Repository.
 
--> Rename your index.php as home.php
+-> Put the files after extracting from the ZIP folder in to your project folder.
 
--> Put the files after extracting from the ZIP folder in your project root folder.
+  1. .htaccess
+  2. route.php
+  3. Create a 404.php file inside your project folder.
  
 -> Remove the ".php" extension from your navigation anchor tag href="home" instead of "home.php".
 
